@@ -9,7 +9,7 @@ a) Define an enumeration called `iOSDeviceType` with member values `iPhone`, `iP
 
 b) Adjust your code above so that `iPhone` and `iPad` have associated values of type String which represents the model number, eg: `iPhone("6 Plus")`. Use a switch case and let syntax to print out the model number of each device.
 
-``` swift 
+```swift 
 
 enum iOSDeviceType {
 
@@ -17,18 +17,14 @@ enum iOSDeviceType {
     case iPad (String)
     case iWatch
 
-
-
-
     func printAllDevices() {
-
         switch self {
             case .iphone(let model):
-            print("iphone model: \(model)")
+                print("iphone model: \(model)")
             case .iPad(let model):
-            print(("iphone model: \(model)"))
+                print(("iphone model: \(model)"))
             case .iWatch:
-            print("iWatch")
+                print("iWatch")
         }
 
     }
@@ -53,31 +49,30 @@ b) Write a method inside `Shape` that returns how many sides the shape has. Crea
 
 c) Re-write `Shape` so that each case has an associated value of type Int that will represent the length of the sides (assume the shapes are regular polygons so all the sides are the same length) and write a method inside that returns the perimeter of the shape.
 
-``` swift
+```swift
 
 enum Shape: String {
-case triangle
-case rectangle
-case square
-case pentagon
-case hexagon
+    case triangle
+    case rectangle
+    case square
+    case pentagon
+    case hexagon
 
 
-func howManySides() -> Int {
-switch self {
-case .triangle:
-return 3
-case .rectangle:
-return 4
-case .square:
-return 4
-case .pentagon:
-return 5
-case .hexagon:
-return 6
-}
-}
-
+    func howManySides() -> Int {
+        switch self {
+        case .triangle:
+            return 3
+        case .rectangle:
+            return 4
+        case .square:
+            return 4
+        case .pentagon:
+            return 5
+        case .hexagon:
+            return 6
+        }
+    }
 }
 
 var myFavoritePolygon = Shape.square
@@ -85,28 +80,27 @@ print(myFavoritePolygon.howManySides())
 
 
 enum Shape {
-case triangle(Int)
-case rectangle(Int)
-case square(Int)
-case pentagon(Int)
-case hexagon(Int)
+    case triangle(Int)
+    case rectangle(Int)
+    case square(Int)
+    case pentagon(Int)
+    case hexagon(Int)
 
 
-func perimeter() -> Int {
-switch self {
-case .triangle(let length):
-return length * 3
-case .rectangle(let length):
-return length * 4
-case .square(let length):
-return length * 4
-case .pentagon(let length):
-return length * 5
-case .hexagon(let length):
-return length * 6
-}
-}
-
+    func perimeter() -> Int {
+        switch self {
+        case .triangle(let length):
+            return length * 3
+        case .rectangle(let length):
+            return length * 4
+        case .square(let length):
+            return length * 4
+        case .pentagon(let length):
+            return length * 5
+        case .hexagon(let length):
+            return length * 6
+        }
+    }
 }
 
 var myFavoritePolygon = Shape.square(5)
@@ -119,34 +113,32 @@ print(myFavoritePolygon.perimeter())
 
 Write an enum called `OperatingSystem` and give it cases for `windows`, `mac`, and `linux`. Create an array of 10 `OperatingSystem` objects where each one is set to a random operating system. Then, iterate through the array and print out a message depending on the operating system.
 
-```
+```swift
 enum OperatingSystem: CaseIterable {
 case windows
 case mac
 case linux
 
-
-func message() {
-switch self {
-case .windows:
-print("This is Windows")
-case OperatingSystem.mac:
-print("This is Mac")
-case OperatingSystem.linux:
-print("This is Linux")
-}
-}
-
+    func message() {
+        switch self {
+        case .windows:
+            print("This is Windows")
+        case OperatingSystem.mac:
+            print("This is Mac")
+        case OperatingSystem.linux:
+            print("This is Linux")
+        }
+    }
 }
 
 var arr = [OperatingSystem]()
 
 for _ in 0..<10 {
-arr.append(OperatingSystem.allCases.randomElement()!)
+    arr.append(OperatingSystem.allCases.randomElement()!)
 }
 
 for i in arr {
-i.message()
+    i.message()
 }
 
 
@@ -177,15 +169,15 @@ var steps: [Direction] = [.up, .up, .left, .down, .left]
 
 for direction in steps {
     switch direction {
-        case .up:
+    case .up:
         location.y += 1
-case .down:
-location.y -= 1
-case .left:
-location.x -= 1
-case .right:
-location.x += 1
-}
+    case .down:
+        location.y -= 1
+    case .left:
+        location.x -= 1
+    case .right:
+        location.x += 1
+    }
 }
 
 print(location)
@@ -264,14 +256,14 @@ var moneyArray:[(Int,CoinType)] = [(10,.penny),
 // your code here
 
 enum CoinType: Int {
-case penny = 1
-case nickle = 5
-case dime = 10
-case quarter = 25
+    case penny = 1
+    case nickle = 5
+    case dime = 10
+    case quarter = 25
 
-func cost () -> Int {
-return self.rawValue
-}
+    func cost () -> Int {
+        return self.rawValue
+    }
 }
 
 
@@ -286,14 +278,14 @@ var moneyArray:[(Int,CoinType)] = [(10,.penny),
 var sum = 0.0
 
 for i in moneyArray {
-sum += Double((i.1).cost())/100 * Double(i.0)
+    sum += Double((i.1).cost())/100 * Double(i.0)
 }
 
 ```
 
 b) Write a method in the `CoinType` enum that returns an Int representing how many coins of that type you need to have a dollar. Then, create an instance of `CoinType` set to `.nickle` and use your method to print out how many nickels you need to have to make a dollar.
 
-``` swift 
+```swift 
 
 enum CoinType: Int {
     case penny = 1
@@ -326,24 +318,24 @@ b) Given the array `poorlyFormattedDays`, write code that will produce an array 
 var arr = [DayOfWeek]()
 
 for i in poorlyFormattedDays {
-switch i.lowercased() {
-case DayOfWeek.Monday.rawValue.lowercased():
-arr.append(DayOfWeek.Monday)
-case DayOfWeek.Tuesday.rawValue.lowercased():
-arr.append(DayOfWeek.Tuesday)
-case DayOfWeek.Wednesday.rawValue.lowercased():
-arr.append(DayOfWeek.Wednesday)
-case DayOfWeek.Thursday.rawValue.lowercased():
-arr.append(DayOfWeek.Thursday)
-case DayOfWeek.Friday.rawValue.lowercased():
-arr.append(DayOfWeek.Friday)
-case DayOfWeek.Saturday.rawValue.lowercased():
-arr.append(DayOfWeek.Saturday)
-case DayOfWeek.Sunday.rawValue.lowercased():
-arr.append(DayOfWeek.Sunday)
-default:
-arr
-}
+    switch i.lowercased() {
+    case DayOfWeek.Monday.rawValue.lowercased():
+        arr.append(DayOfWeek.Monday)
+    case DayOfWeek.Tuesday.rawValue.lowercased():
+        arr.append(DayOfWeek.Tuesday)
+    case DayOfWeek.Wednesday.rawValue.lowercased():
+        arr.append(DayOfWeek.Wednesday)
+    case DayOfWeek.Thursday.rawValue.lowercased():
+        arr.append(DayOfWeek.Thursday)
+    case DayOfWeek.Friday.rawValue.lowercased():
+        arr.append(DayOfWeek.Friday)
+    case DayOfWeek.Saturday.rawValue.lowercased():
+        arr.append(DayOfWeek.Saturday)
+    case DayOfWeek.Sunday.rawValue.lowercased():
+        arr.append(DayOfWeek.Sunday)
+    default:
+        arr
+    }
 }
 
 print(arr)
@@ -352,20 +344,20 @@ print(arr)
 
 c) Write a method in `DayOfWeek` called `isWeekend` that determines whether a day is part of the weekend or not and write code to calculate how many week days appear in `poorlyFormattedDays`.
 
-``` swift 
+```swift 
 
 enum DayOfWeek: String {
-case Monday = "Monday"
-case Tuesday = "Tuesday"
-case Wednesday = "Wednesday"
-case Thursday = "Thursday"
-case Friday = "Friday"
-case Saturday = "Saturday"
-case Sunday = "Sunday"
+    case Monday = "Monday"
+    case Tuesday = "Tuesday"
+    case Wednesday = "Wednesday"
+    case Thursday = "Thursday"
+    case Friday = "Friday"
+    case Saturday = "Saturday"
+    case Sunday = "Sunday"
 
-func isWeekend() -> Bool {
-return self.rawValue == "Saturday" || self.rawValue == "Sunday"
-}
+    func isWeekend() -> Bool {
+        return self.rawValue == "Saturday" || self.rawValue == "Sunday"
+    }
 
 }
 
@@ -376,24 +368,24 @@ let poorlyFormattedDays = ["MONDAY", "wednesday", "Sunday", "monday", "Tuesday",
 var arr = [DayOfWeek]()
 
 for i in poorlyFormattedDays {
-switch i.lowercased() {
-case DayOfWeek.Monday.rawValue.lowercased():
-arr.append(DayOfWeek.Monday)
-case DayOfWeek.Tuesday.rawValue.lowercased():
-arr.append(DayOfWeek.Tuesday)
-case DayOfWeek.Wednesday.rawValue.lowercased():
-arr.append(DayOfWeek.Wednesday)
-case DayOfWeek.Thursday.rawValue.lowercased():
-arr.append(DayOfWeek.Thursday)
-case DayOfWeek.Friday.rawValue.lowercased():
-arr.append(DayOfWeek.Friday)
-case DayOfWeek.Saturday.rawValue.lowercased():
-arr.append(DayOfWeek.Saturday)
-case DayOfWeek.Sunday.rawValue.lowercased():
-arr.append(DayOfWeek.Sunday)
-default:
-arr
-}
+    switch i.lowercased() {
+    case DayOfWeek.Monday.rawValue.lowercased():
+        arr.append(DayOfWeek.Monday)
+    case DayOfWeek.Tuesday.rawValue.lowercased():
+        arr.append(DayOfWeek.Tuesday)
+    case DayOfWeek.Wednesday.rawValue.lowercased():
+        arr.append(DayOfWeek.Wednesday)
+    case DayOfWeek.Thursday.rawValue.lowercased():
+        arr.append(DayOfWeek.Thursday)
+    case DayOfWeek.Friday.rawValue.lowercased():
+        arr.append(DayOfWeek.Friday)
+    case DayOfWeek.Saturday.rawValue.lowercased():
+        arr.append(DayOfWeek.Saturday)
+    case DayOfWeek.Sunday.rawValue.lowercased():
+        arr.append(DayOfWeek.Sunday)
+    default:
+    arr
+    }
 }
 
 print(arr.filter{!$0.isWeekend()}.count)
@@ -412,26 +404,26 @@ c) Write code that prints the train letter or number of your instance of `MetroL
 ```swift
 
 enum MetroLine {
-case purple(Int)
-case green(Int)
-case red(Int)
-case brown(Character)
-case orange(Character)
+    case purple(Int)
+    case green(Int)
+    case red(Int)
+    case brown(Character)
+    case orange(Character)
 
-func printTrain() {
-switch self {
-case let .purple(num):
-print(num)
-case let .green(num):
-print(num)
-case let .red(num):
-print(num)
-case let .brown(letter):
-print(letter)
-case let .orange(letter):
-print(letter)
-}
-}
+    func printTrain() {
+        switch self {
+        case let .purple(num):
+            print(num)
+        case let .green(num):
+            print(num)
+        case let .red(num):
+            print(num)
+        case let .brown(letter):
+            print(letter)
+        case let .orange(letter):
+            print(letter)
+        }
+    }
 }
 
 var fTrain = MetroLine.orange("f")
@@ -450,19 +442,20 @@ var purpleTrain = MetroLine.purple(7)
 a) Think of your own example of something that can be modeled as an enum and write it. Remember that enums allow you to create instances of a defined list of cases.
 
 b) Add a method to your enum.... try to have the method make sense.
-
+```swift
 enum chores : String {
-case clean = "On Friday"
-case cook = "Everyday"
-case wash_Dog = "Once a month"
-case dishes = "Every night"
+    case clean = "On Friday"
+    case cook = "Everyday"
+    case wash_Dog = "Once a month"
+    case dishes = "Every night"
 
-func whatday () {
-print(self.rawValue)
-}
+    func whatday () {
+        print(self.rawValue)
+    }
 
 }
 
 var whenToClean = chores.clean
 
 whenToClean.whatday()
+```
