@@ -309,12 +309,36 @@ print(nickel.coinsNeeded())
 ## Question 7
 
 a) Write an enum called `DayOfWeek` to represent the days of the week with a raw value of type String.
+``` swift
+
+enum DayOfWeek: String {
+    case Monday = "Monday"
+    case Tuesday = "Tuesday"
+    case Wednesday = "Wednesday"
+    case Thursday = "Thursday"
+    case Friday = "Friday"
+    case Saturday = "Saturday"
+    case Sunday = "Sunday"
+
+}
+
+```
 
 b) Given the array `poorlyFormattedDays`, write code that will produce an array of enums that match the days.
 
 `let poorlyFormattedDays = ["MONDAY", "wednesday", "Sunday", "monday", "Tuesday", "WEDNESDAY", "thursday", "SATURDAY", "tuesday", "FRIDAy", "Wednesday", "Monday", "Friday", "sunday"]`
-```switch 
+```swift
 
+enum DayOfWeek: String {
+    case Monday = "Monday"
+    case Tuesday = "Tuesday"
+    case Wednesday = "Wednesday"
+    case Thursday = "Thursday"
+    case Friday = "Friday"
+    case Saturday = "Saturday"
+    case Sunday = "Sunday"
+
+}
 var arr = [DayOfWeek]()
 
 for i in poorlyFormattedDays {
