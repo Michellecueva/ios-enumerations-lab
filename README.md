@@ -140,9 +140,7 @@ for _ in 0..<10 {
 for i in arr {
     i.message()
 }
-
-
-
+```
 
 ## Question 4
 
